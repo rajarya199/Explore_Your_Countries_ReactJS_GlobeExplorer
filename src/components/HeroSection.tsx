@@ -5,7 +5,6 @@ import {
   GlobeIcon,
   InfoIcon,
   UsersIcon,
-  EarthIcon,
 } from 'lucide-react'
 export const HeroSection: React.FC = () => {
   return (

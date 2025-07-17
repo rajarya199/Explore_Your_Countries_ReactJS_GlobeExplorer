@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { ThemeToggle } from '../components/ThemeToggle'
 import { GlobeIcon, MenuIcon, XIcon } from 'lucide-react'
+import { Link } from 'react-router-dom'
+
 const Navbar = () => {
      const [isMenuOpen, setIsMenuOpen] = useState(false)
   const toggleMenu = () => {
@@ -18,18 +20,18 @@ const Navbar = () => {
           </div>
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#"
+            <Link
+              to='/'
               className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/countries"
               className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
             >
               Countries
-            </a>
+            </Link>
             <a
               href="#"
               className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
