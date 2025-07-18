@@ -1,3 +1,6 @@
+import { ExternalLinkIcon, BuildingIcon, GlobeIcon, UsersIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
 interface CountryProps {
   country: {
     name: { common: string; official: string };
@@ -5,50 +8,76 @@ interface CountryProps {
     capital?: string[];
     region: string;
     population: number;
+    cca3: string; // Unique country code
   };
 }
 
 const CountryCard = ({ country }: CountryProps) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
-      <div className="relative h-40 overflow-hidden">
-        <img
-          src={country.flags.svg}
-          alt={`Flag of ${country.name.common}`}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 p-4">
-          <h2 className="text-xl font-bold text-white">{country.name.common}</h2>
-        </div>
-      </div>
-      <div className="p-5">
-        <div className="mb-4">
-          <p className="text-sm text-gray-500 dark:text-gray-400">Official Name</p>
-          <p className="font-medium text-gray-900 dark:text-white">{country.name.official}</p>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
+    <div className="relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+      <div className="p-4">
+        {/* Country Header */}
+        <div className="flex justify-between items-start mb-3">
           <div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Capital</p>
-            <p className="font-medium text-gray-900 dark:text-white">
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white">
+              {country.name.common}
+            </h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
+              {country.name.official}
+            </p>
+          </div>
+          <div className="w-18 h-12 overflow-hidden rounded shadow-sm ml-2 flex-shrink-0">
+            <img
+              src={country.flags.svg}
+              alt={`Flag of ${country.name.common}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Country Info */}
+        <div className="space-y-2 mt-3 text-sm">
+          <div className="flex items-center">
+            <BuildingIcon
+              size={16}
+              className="mr-2 text-blue-500 dark:text-blue-400 flex-shrink-0"
+            />
+            <span className="text-gray-600 dark:text-gray-300">Capital: </span>
+            <span className="ml-1 font-medium text-gray-900 dark:text-white">
               {country.capital?.[0] || 'N/A'}
-            </p>
+            </span>
           </div>
-          <div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Region</p>
-            <p className="font-medium text-gray-900 dark:text-white">{country.region}</p>
+          <div className="flex items-center">
+            <GlobeIcon
+              size={16}
+              className="mr-2 text-green-500 dark:text-green-400 flex-shrink-0"
+            />
+            <span className="text-gray-600 dark:text-gray-300">Region: </span>
+            <span className="ml-1 font-medium text-gray-900 dark:text-white">
+              {country.region}
+            </span>
           </div>
-          <div className="col-span-2">
-            <p className="text-sm text-gray-500 dark:text-gray-400">Population</p>
-            <p className="font-medium text-gray-900 dark:text-white">
+          <div className="flex items-center">
+            <UsersIcon
+              size={16}
+              className="mr-2 text-purple-500 dark:text-purple-400 flex-shrink-0"
+            />
+            <span className="text-gray-600 dark:text-gray-300">Population: </span>
+            <span className="ml-1 font-medium text-gray-900 dark:text-white">
               {country.population.toLocaleString()}
-            </p>
+            </span>
           </div>
         </div>
-        <button className="mt-4 w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm font-medium">
-          View Details
-        </button>
       </div>
+
+      {/* Link Icon at bottom-right */}
+      <Link
+        to={`/country/${country.cca3}`}
+        className="absolute bottom-2 right-2 text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        title="View Details"
+      >
+        <ExternalLinkIcon size={18} />
+      </Link>
     </div>
   );
 };
