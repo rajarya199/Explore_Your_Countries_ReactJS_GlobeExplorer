@@ -17,6 +17,8 @@ type Country = {
 
 const Countries = () => {
   const [countries, setCountries] = useState<Country[]>([]);
+  const [selectedRegion, setSelectedRegion] = useState("");
+
   const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -50,15 +52,21 @@ const Countries = () => {
     fetchCountries();
   }, []);
 
-  const filterCountries = countries.filter(
-    (country) =>
-      country.name.common
-        .toLocaleLowerCase()
-        .includes(searchQuery.toLocaleLowerCase()) ||
-      country.name.official
-        .toLocaleLowerCase()
-        .includes(searchQuery.toLocaleLowerCase())
-  );
+ const filterCountries = countries.filter((country) => {
+  const matchesSearch =
+    country.name.common
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase()) ||
+    country.name.official
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+
+  const matchesRegion =
+    selectedRegion === "" || country.region === selectedRegion;
+
+  return matchesSearch && matchesRegion;
+});
+
 
   return (
     <div className="p-6">
