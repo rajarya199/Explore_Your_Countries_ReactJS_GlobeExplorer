@@ -3,7 +3,14 @@ import { useParams } from "react-router-dom";
 import { MapIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import CountryHeader from "../components/CountryHeader";
-
+import CountryGeography from "../components/CountryGeography";
+import Demography from "../components/Demography";
+type Demonyms = {
+  eng: {
+    f: string;
+    m: string;
+  };
+};
 type Country = {
   name: {
     common: string;
@@ -35,6 +42,10 @@ type Country = {
   timezones: string[];
   continents: string[];
   startOfWeek?: string;
+landlocked: boolean,
+  demonyms?: Demonyms;
+
+
 };
 
 const Country: React.FC = () => {
@@ -75,6 +86,25 @@ const Country: React.FC = () => {
         capital={country.capital}
         population={country.population}
       />
+
+      <main className="container mx-auto px-4 py-12">
+<CountryGeography
+  capital={country.capital}
+    region={country.region}
+    area={country.area}
+    subregion={country.subregion}
+    borders={country.borders}
+    landlocked={country.landlocked}
+    continents={country.continents}
+
+/>
+<Demography
+  population={country.population}
+    languages={country.languages}
+    timezones={country.timezones}
+    demonyms={country.demonyms}
+/>
+      </main>
       <div className="bg-white rounded-xl shadow-md p-6">
         <div className="flex flex-col md:flex-row gap-6">
           {/* Flag */}
