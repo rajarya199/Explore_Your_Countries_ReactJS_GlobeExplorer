@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MapIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import CountryHeader from "../components/CountryHeader";
 
 type Country = {
   name: {
@@ -61,12 +62,19 @@ const Country: React.FC = () => {
   if (!country) return <p className="text-center mt-10 text-red-500">Country not found.</p>;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6">
+    <div className="mx-auto px-4 py-6">
       <Link to="/" className="text-blue-600 hover:underline flex items-center mb-4">
         {/* <IoIosArrowBack className="mr-1" /> */}
         Back to List
       </Link>
-
+        <CountryHeader
+        flag={country.flags}
+        name={country.name}
+        region={country.region}
+        subregion={country.subregion}
+        capital={country.capital}
+        population={country.population}
+      />
       <div className="bg-white rounded-xl shadow-md p-6">
         <div className="flex flex-col md:flex-row gap-6">
           {/* Flag */}
