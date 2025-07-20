@@ -6,6 +6,7 @@ import CountryHeader from "../components/CountryHeader";
 import CountryGeography from "../components/CountryGeography";
 import Demography from "../components/Demography";
 import GovermentOfficial from "../components/GovermentOfficial";
+import Economy from "../components/Economy";
 type Demonyms = {
   eng: {
     f: string;
@@ -44,6 +45,9 @@ type Country = {
     googleMaps: string;
     openStreetMaps: string;
   };
+  gini?:{
+    [year: string]: number;
+  }
   timezones: string[];
   continents: string[];
   startOfWeek?: string;
@@ -121,6 +125,10 @@ const Country: React.FC = () => {
     ccn3={country.ccn3}
     unMember={country.unMember}
     tld={country.tld}
+/>
+<Economy
+currencies={country.currencies}
+gini={country.gini}
 />
       </main>
       <div className="bg-white rounded-xl shadow-md p-6">
