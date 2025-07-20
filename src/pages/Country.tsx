@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import CountryHeader from "../components/CountryHeader";
 import CountryGeography from "../components/CountryGeography";
 import Demography from "../components/Demography";
+import GovermentOfficial from "../components/GovermentOfficial";
 type Demonyms = {
   eng: {
     f: string;
@@ -18,6 +19,10 @@ type Country = {
     nativeName?: Record<string, { official: string; common: string }>;
   };
   cca3: string;
+  ccn3:string;
+  independent: boolean;
+  unMember:boolean;
+  tld:string[];
   flags: {
     png: string;
     svg: string;
@@ -42,8 +47,12 @@ type Country = {
   timezones: string[];
   continents: string[];
   startOfWeek?: string;
-landlocked: boolean,
+landlocked: boolean;
   demonyms?: Demonyms;
+    car: {
+    signs: string[];
+    side: 'left' | 'right';
+  };
 
 
 };
@@ -103,6 +112,15 @@ const Country: React.FC = () => {
     languages={country.languages}
     timezones={country.timezones}
     demonyms={country.demonyms}
+/>
+
+<GovermentOfficial
+  startOfWeek={country.startOfWeek}
+    independent={country.independent}
+    cca3={country.cca3}
+    ccn3={country.ccn3}
+    unMember={country.unMember}
+    tld={country.tld}
 />
       </main>
       <div className="bg-white rounded-xl shadow-md p-6">
