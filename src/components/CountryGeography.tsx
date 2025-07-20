@@ -38,7 +38,7 @@ const CountryGeography:React.FC<GeoProps> = ({
                       Continent
                     </span>
                     <span className="font-medium text-lg">
-                      {continents[0]}
+                        {continents.join(", ")}
                     </span>
                   </div>
                   <div>
