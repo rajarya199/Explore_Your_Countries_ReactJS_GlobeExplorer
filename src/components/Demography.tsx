@@ -1,4 +1,4 @@
-import { BuildingIcon, ClockIcon, UsersIcon,LanguagesIcon, BadgeIcon } from 'lucide-react'
+import {  ClockIcon, UsersIcon,LanguagesIcon, BadgeIcon } from 'lucide-react'
 import React from 'react'
 
 type Demonyms = {
@@ -74,7 +74,7 @@ const Demography:React.FC<DemoProps> = ({
                   <ClockIcon className="h-10 w-10 text-purple-600 dark:text-purple-400" />
                 </div>
                 <h3 className="text-lg font-semibold mb-1">Timezones</h3>
-                <div className="flex flex-col gap-1 mt-2">
+                <div className=" flex-col gap-1 mt-2 grid md:grid-cols-2">
                   {timezones.map((timezone, index) => (
                     <span
                       key={index}
