@@ -9,10 +9,10 @@ type Country = {
   flags: { svg: string; png: string };
   region: string;
   population: number;
-  languages?: Record<string, string>;
-  currencies?: Record<string, { name: string; symbol: string }>;
+        continents: string[];
+
+  // currencies?: Record<string, { name: string; symbol: string }>;
   area: number;
-  borders?: string[];
 };
 
 const Countries = () => {
@@ -30,8 +30,7 @@ const Countries = () => {
         "flags",
         "region",
         "population",
-        "languages",
-        "timezones",
+       "continents",
         "area",
         "cca3",
       ].join(",");
