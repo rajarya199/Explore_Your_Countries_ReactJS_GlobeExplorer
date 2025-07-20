@@ -1,4 +1,4 @@
-import { ExternalLinkIcon, BuildingIcon, GlobeIcon, UsersIcon } from 'lucide-react';
+import { ExternalLinkIcon, BuildingIcon, GlobeIcon, UsersIcon, Globe2Icon, Hash } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface CountryProps {
@@ -8,6 +8,7 @@ interface CountryProps {
     capital?: string[];
     region: string;
     population: number;
+    continents:string[];
     cca3: string; // Unique country code
   };
 }
@@ -38,6 +39,16 @@ const CountryCard = ({ country }: CountryProps) => {
         {/* Country Info */}
         <div className="space-y-2 mt-3 text-sm">
           <div className="flex items-center">
+            <Hash
+              size={16}
+              className="mr-2 text-purple-500 dark:text-purple-400 flex-shrink-0"
+            />
+            <span className="text-gray-600 dark:text-gray-300">CCA3: </span>
+            <span className="ml-1 font-medium text-gray-900 dark:text-white">
+              {country.cca3}
+            </span>
+          </div>
+          <div className="flex items-center">
             <BuildingIcon
               size={16}
               className="mr-2 text-blue-500 dark:text-blue-400 flex-shrink-0"
@@ -47,17 +58,18 @@ const CountryCard = ({ country }: CountryProps) => {
               {country.capital?.[0] || 'N/A'}
             </span>
           </div>
-          <div className="flex items-center">
+           <div className="flex items-center">
             <GlobeIcon
               size={16}
               className="mr-2 text-green-500 dark:text-green-400 flex-shrink-0"
             />
-            <span className="text-gray-600 dark:text-gray-300">Region: </span>
+            <span className="text-gray-600 dark:text-gray-300">Continents: </span>
             <span className="ml-1 font-medium text-gray-900 dark:text-white">
-              {country.region}
+                        {country.continents.join(", ")}
+
             </span>
           </div>
-          <div className="flex items-center">
+           <div className="flex items-center">
             <UsersIcon
               size={16}
               className="mr-2 text-purple-500 dark:text-purple-400 flex-shrink-0"
@@ -67,6 +79,17 @@ const CountryCard = ({ country }: CountryProps) => {
               {country.population.toLocaleString()}
             </span>
           </div>
+          <div className="flex items-center">
+            <Globe2Icon
+              size={16}
+              className="mr-2 text-green-500 dark:text-green-400 flex-shrink-0"
+            />
+            <span className="text-gray-600 dark:text-gray-300">Region: </span>
+            <span className="ml-1 font-medium text-gray-900 dark:text-white">
+              {country.region}
+            </span>
+          </div>
+         
         </div>
       </div>
 
