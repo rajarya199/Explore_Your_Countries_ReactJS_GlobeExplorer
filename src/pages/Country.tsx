@@ -51,6 +51,8 @@ type Country = {
   gini?:{
     [year: string]: number;
   }
+  latlng: [number, number];
+
   timezones: string[];
   continents: string[];
   startOfWeek?: string;
@@ -95,18 +97,20 @@ const Country: React.FC = () => {
         Back to List
       </Link>
         <CountryHeader
-        flag={country.flags}
+        flags={country.flags}
         name={country.name}
         region={country.region}
         subregion={country.subregion}
         capital={country.capital}
         population={country.population}
+        coatOfArms={country.coatOfArms}
       />
 
       <main className="container mx-auto px-4 py-12">
 <CountryGeography
   capital={country.capital}
     region={country.region}
+    latlng={country.latlng}
     area={country.area}
     subregion={country.subregion}
     borders={country.borders}
