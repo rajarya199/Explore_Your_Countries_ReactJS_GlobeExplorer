@@ -8,10 +8,20 @@ interface GeoProps{
     borders?: string[];
     landlocked: boolean,
       continents: string[];
+      latlng: [number, number];
+
 }
+
+function formatCoordinates([lat, lng]: [number, number]): string {
+  const latDir = lat >= 0 ? 'N' : 'S';
+  const lngDir = lng >= 0 ? 'E' : 'W';
+  return `${Math.abs(lat)}° ${latDir}, ${Math.abs(lng)}° ${lngDir}`;
+}
+
 const CountryGeography:React.FC<GeoProps> = ({
     capital,
     region,
+    latlng,
     area,
     subregion,
     borders,
@@ -55,6 +65,14 @@ const CountryGeography:React.FC<GeoProps> = ({
                     </span>
                     <span className="font-medium text-lg">
                       {subregion}
+                    </span>
+                  </div>
+                   <div>
+                    <span className="text-gray-500 dark:text-gray-400 block">
+                      Coordinates
+                    </span>
+                    <span className="font-medium text-lg">
+                      {formatCoordinates(latlng)}
                     </span>
                   </div>
                 </div>
