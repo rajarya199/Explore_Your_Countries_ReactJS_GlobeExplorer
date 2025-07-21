@@ -7,6 +7,8 @@ import CountryGeography from "../components/CountryGeography";
 import Demography from "../components/Demography";
 import GovermentOfficial from "../components/GovermentOfficial";
 import Economy from "../components/Economy";
+import CountryMap from "../components/CountryMap";
+import Others from "../components/Others";
 type Demonyms = {
   eng: {
     f: string;
@@ -24,6 +26,7 @@ type Country = {
   independent: boolean;
   unMember:boolean;
   tld:string[];
+  fifa:string;
   flags: {
     png: string;
     svg: string;
@@ -129,6 +132,14 @@ const Country: React.FC = () => {
 <Economy
 currencies={country.currencies}
 gini={country.gini}
+/>
+<CountryMap
+name={country.name}
+maps={country.maps}
+/>
+<Others
+fifa={country.fifa}
+car={country.car}
 />
       </main>
       <div className="bg-white rounded-xl shadow-md p-6">
