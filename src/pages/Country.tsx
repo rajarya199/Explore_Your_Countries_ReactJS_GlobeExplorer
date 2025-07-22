@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MapIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import CountryHeader from "../components/CountryHeader";
 import CountryGeography from "../components/CountryGeography";
@@ -102,7 +101,6 @@ const Country: React.FC = () => {
         region={country.region}
         subregion={country.subregion}
         capital={country.capital}
-        population={country.population}
         coatOfArms={country.coatOfArms}
       />
 
@@ -146,74 +144,7 @@ fifa={country.fifa}
 car={country.car}
 />
       </main>
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Flag */}
-          <img src={country.flags?.png} alt={country.flags?.alt || "flag"} className="w-full md:w-64 rounded-lg shadow" />
-
-          {/* Info */}
-          <div className="flex-1 space-y-4">
-            <h1 className="text-3xl font-bold">{country.name?.common}</h1>
-            <p className="text-gray-700 italic">{country.name?.official}</p>
-
-            {country.capital && (
-              <p>
-                <strong>Capital:</strong> {country.capital.join(", ")}
-              </p>
-            )}
-            <p>
-              <strong>Region:</strong> {country.region} {country.subregion && `– ${country.subregion}`}
-            </p>
-            <p>
-              <strong>Continent:</strong> {country.continents.join(", ")}
-            </p>
-            <p>
-              <strong>Population:</strong> {country.population.toLocaleString()}
-            </p>
-            <p>
-              <strong>Area:</strong> {country.area.toLocaleString()} km²
-            </p>
-
-            {country.languages && (
-              <p>
-                <strong>Languages:</strong> {Object.values(country.languages).join(", ")}
-              </p>
-            )}
-
-            {country.currencies && (
-              <p>
-                <strong>Currencies:</strong>{" "}
-                {Object.values(country.currencies)
-                  .map((cur) => `${cur.name} (${cur.symbol})`)
-                  .join(", ")}
-              </p>
-            )}
-
-            {country.borders && (
-              <p>
-                <strong>Borders:</strong> {country.borders.join(", ")}
-              </p>
-            )}
-
-            {/* Map and Coat of Arms */}
-            <div className="flex items-center gap-4 mt-4 flex-wrap">
-              <a href={country.maps.googleMaps} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline">
-                <MapIcon /> Google Maps
-              </a>
-              <a href={country.maps.openStreetMaps} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:underline">
-                <MapIcon /> OpenStreetMap
-              </a>
-            </div>
-
-            {country.coatOfArms?.png && (
-              <div className="mt-4">
-                <p className="font-semibold mb-2">Coat of Arms:</p>
-                <img src={country.coatOfArms.png} alt="Coat of Arms" className="w-32 h-auto" />
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
+    
     </div>
   );
 };
