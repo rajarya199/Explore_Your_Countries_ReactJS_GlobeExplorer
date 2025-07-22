@@ -1,7 +1,7 @@
 import React from 'react'
+import earth from"../assets/earth.jpg"
 import {
-  SearchIcon,
-  MapIcon,
+
   GlobeIcon,
   InfoIcon,
   UsersIcon,
@@ -9,14 +9,18 @@ import {
 export const HeroSection: React.FC = () => {
   return (
     <section className="w-full bg-white dark:bg-gray-900 transition-colors p-4">
-      <div className="container mx-auto px-4 py-16 md:py-24">
+      <div className="container mx-auto px-4 py-8 md:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-              Discover the World's Countries
-            </h1>
-            {/* Quick Stats Section - Replacing the description */}
-            <div className="bg-white/80 dark:bg-gray-800/80 rounded-lg p-4 backdrop-blur-sm border border-gray-100 dark:border-gray-700">
+          <div className="w-full ">
+           
+            <div className="rounded-xl overflow-hidden shadow-xl">
+              <img
+              src={earth}
+                alt="World map with markers"
+                className="w-full"
+              />
+            </div>
+              <div className="bg-white/80 dark:bg-gray-800/80 rounded-lg p-4 backdrop-blur-sm border border-gray-100 dark:border-gray-700 mt-4">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                 Global Quick Stats
               </h3>
@@ -62,19 +66,10 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center">
-                <SearchIcon size={18} className="mr-2" />
-                Explore Countries
-              </button>
-              <button className="px-6 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center">
-                <MapIcon size={18} className="mr-2" />
-                View Map
-              </button>
-            </div>
           </div>
           <div className="relative">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg max-w-md mx-auto">
+           
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg  mx-auto">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center space-x-2">
                   <GlobeIcon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
