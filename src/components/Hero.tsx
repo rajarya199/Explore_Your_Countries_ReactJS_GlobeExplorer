@@ -1,5 +1,6 @@
 import React from 'react'
-import { SearchIcon,MapIcon } from 'lucide-react'
+import { MapIcon } from 'lucide-react'
+import { Link } from 'react-router-dom'
 export const Hero: React.FC = () => {
   return (
     <section className="w-full bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors p-4 py-16 md:py-24">
@@ -15,10 +16,9 @@ export const Hero: React.FC = () => {
               about our diverse world.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center">
-                <SearchIcon size={18} className="mr-2" />
+              <Link to="/countries" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center">
                 Explore Countries
-              </button>
+              </Link>
               <button className="px-6 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center">
                 <MapIcon size={18} className="mr-2" />
                 View Map
