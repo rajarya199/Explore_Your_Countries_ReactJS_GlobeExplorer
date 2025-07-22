@@ -23,7 +23,6 @@ interface CountryHeaderProps {
   region: string;
   subregion?: string;
   capital?: string[];
-  population: number;
 }
 
 const CountryHeader: React.FC<CountryHeaderProps> = ({
@@ -32,7 +31,6 @@ const CountryHeader: React.FC<CountryHeaderProps> = ({
   region,
   subregion,
   capital,
-  population,
   coatOfArms
 }) => {
   return (
