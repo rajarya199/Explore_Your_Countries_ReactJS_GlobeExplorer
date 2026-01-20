@@ -1,23 +1,31 @@
 import { motion } from 'framer-motion'
-
+import { useTheme } from '../context/ThemeContext'
+import { Link } from 'react-router-dom'
 import Globe from './lightswind/globe'
 const MyGlobe = () => {
+     const { theme } = useTheme();
+  const isDark = theme === "dark";
   return (
     <div className="w-full bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors p-4 py-12 md:py-25">
-        <div className='container mx-auto px-4 py-8 md:py-12'>
+        <div className='container mx-auto'>
 <div className="grid grid-col-1 lg:grid-cols-2 gap-12  items-center">
           <div className="w-full">
       <Globe
-  theta={0.2}
-  dark={1}
-  scale={1.2}
-  diffuse={1.5}
-  baseColor="#1a1a1a"
-  markerColor="#ff0000"
-  glowColor="#444444"
+  className="mx-auto"
+                theta={0.25}
+                dark={isDark ? 1 : 0}
+                scale={1.15}
+                diffuse={isDark ? 1.3 : 1.1}
+                mapSamples={isDark ? 45000 : 35000}
+                mapBrightness={isDark ? 8 : 11}
+                baseColor={isDark ? "#0f172a" : "#e2e8f0"}
+                markerColor="#38bdf8"
+                                // glowColor={isDark ? "#60a5fa" : "#2563eb"}
+
+                glowColor={isDark ?  "#6B7280" : "#D1D5DB"}
 />
 </div>
-<div className=''>
+<div className='items-center'>
   <motion.h1
               initial={{
                 opacity: 0,
@@ -39,6 +47,14 @@ const MyGlobe = () => {
                 Corner of Our World
               </span>
             </motion.h1>
+               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Link to='/countries' className="px-6 py-3 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition">
+                Explore Countries
+              </Link>
+              <button className="px-6 py-3 rounded-full border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                Learn More
+              </button>
+            </div>
 </div>
 </div>
         </div>
