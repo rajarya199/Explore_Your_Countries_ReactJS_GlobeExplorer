@@ -3,14 +3,14 @@ import { MapIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 export const Hero: React.FC = () => {
   return (
-    <section className="w-full bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors p-4 py-16 md:py-24">
+    <section className="w-full bg-white dark:bg-gray-900  transition-colors p-4 py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
               Discover the World's Countries
             </h1>
-            <p className="text-lg text-gray-700 dark:text-gray-300 max-w-lg">
+            <p className="text-lg text-gray-700 dark:text-gray-300 max-w-lg py-4">
               Explore detailed information about every country, from population
               and regions to time zones and more. Filter, search, and learn
               about our diverse world.
