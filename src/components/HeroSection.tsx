@@ -1,5 +1,6 @@
 import React from 'react'
 import earth from"../assets/earth.jpg"
+import earth1 from "../assets/earth1.mp4"
 import {
 
   GlobeIcon,
@@ -14,11 +15,19 @@ export const HeroSection: React.FC = () => {
           <div className="w-full ">
            
             <div className="rounded-xl overflow-hidden shadow-xl">
-              <img
+              {/* <img
               src={earth}
                 alt="World map with markers"
                 className="w-full"
-              />
+              /> */}
+                <video
+      src={earth1}
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="w-full h-auto max-h-[400px] object-cover" // Adjust max-h as needed for your design
+    />
             </div>
               <div className="bg-white/80 dark:bg-gray-800/80 rounded-lg p-4 backdrop-blur-sm border border-gray-100 dark:border-gray-700 mt-4">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
