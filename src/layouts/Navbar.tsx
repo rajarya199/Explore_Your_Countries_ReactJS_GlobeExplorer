@@ -13,10 +13,15 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <GlobeIcon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-            <span className="text-xl font-bold text-gray-900 dark:text-white">
-              GlobalExplorer
-            </span>
+             <Link to="/" className="flex items-center gap-2 group">
+            <div className="relative">
+              <GlobeIcon className="w-8 h-8  dark:text-cyan-400 text-gray-600 transition-transform duration-500 group-hover:rotate-180" />
+    <div className="absolute inset-0 bg-gradient-to-r dark:from-cyan-400/20 from-gray-200/50 dark:to-blue-500/20 blur-lg rounded-full transition-all duration-500 group-hover:scale-110" />
+            </div>
+            <span className="text-xl font-bold tracking-tight bg-gradient-to-r dark:from-white from-gray-900 dark:to-gray-800 bg-clip-text text-transparent">
+    Globe<span className="dark:text-cyan-400 text-cyan-600 font-bold">Explore</span>
+  </span>
+          </Link>
           </div>
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
