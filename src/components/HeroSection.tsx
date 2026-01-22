@@ -1,5 +1,4 @@
 import React from 'react'
-import earth from"../assets/earth.jpg"
 import earth1 from "../assets/earth1.mp4"
 import {
 
